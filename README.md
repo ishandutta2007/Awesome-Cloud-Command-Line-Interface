@@ -1,167 +1,132 @@
-# Awesome-Cloud-Command-Line-Interface
-
-# Awesome-Cloud-Command-Line-Interface
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**
-
-*Focused on Cloud Management, Infrastructure Automation & Multi-Cloud Operations*
-
-**Last updated: October 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Cloud Command-Line Interfaces**. These tools help developers and DevOps engineers manage cloud resources, automate infrastructure, and script multi-cloud workflows directly from the terminal.
-
-
-
-**Examples** include Microsoft Azure CLI, AWS CLI, Google Cloud CLI (gcloud), OCI CLI, DigitalOcean CLI (doctl), Linode CLI, IBM Cloud CLI, Vultr CLI, Scaleway CLI, and Alibaba Cloud CLI (the category leaders).
-
-
-
-**Open-source emphasis**: Cloud CLIs are **overwhelmingly open-source** — nearly every major cloud provider publishes their CLI under permissive licenses. **AWS CLI v2**, **Azure CLI**, and **Google Cloud CLI** are all actively maintained open-source projects with tens of thousands of GitHub stars. **doctl** (DigitalOcean) is a popular Go-based CLI, while **Linode CLI**, **Vultr CLI**, and **Scaleway CLI** provide full API coverage for smaller providers. This section documents these production-grade solutions.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## 📖 Table of Contents
-
-
-
-- [☁️ SaaS/Hosted Platforms](#-saas-hosted-platforms)
-
-- [🔓 Open-Source GitHub Projects](#-open-source-github-projects)
-
-- [🤝 How to Contribute](#-how-to-contribute)
-
-- [⚠️ Disclaimer](#-disclaimer)
-
-
-
-## ☁️ SaaS/Hosted Platforms
-
-
-
-> **📊 Market Context**: The global cloud CLI market is **not a standalone commercial segment** — CLI tools are **free value-adds** provided by cloud providers to drive platform adoption. The broader cloud infrastructure services market is estimated at **~$1.2T in 2026**, growing at **~18% CAGR**. The CLI layer is **highly concentrated** by cloud provider — AWS, Azure, and GCP each ship their own CLI as the primary programmatic interface. Open-source alternatives like **Pulumi** and **Terraform** (now OpenTofu) compete at the infrastructure-as-code layer above raw CLIs. No CLI holds a "winner-take-all" position; enterprises typically standardize on their primary cloud's CLI plus one IaC tool.
-
-
-
-| Platform | Description | Pricing (Starting Tier) | Free Tier Limits | Company Size |
-
-|----------|-------------|------------------------|------------------|--------------|
-
-| **[Microsoft Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)** | Cross-platform CLI for managing Azure resources. Open-source, available on Windows, macOS, Linux, Docker, and Azure Cloud Shell. | **Free** — Azure CLI itself costs nothing. You pay for Azure resources consumed. **Azure free account**: **$200 credit for 30 days** + **12 months of popular free services** . | **Azure free account**: $200 credit (30 days), 55+ always-free services, 12-month free tier for popular services. **Azure Cloud Shell**: Free with 5 GB persistent storage. | **~$281B revenue (Microsoft FY2025)** |
-
-| **[AWS CLI](https://aws.amazon.com/cli/)** | Unified CLI for AWS services. v2 is the current generation with installer-based distribution. Open-source on GitHub. | **Free** — AWS CLI itself costs nothing. **AWS Free Tier**: **$100 sign-up credits** + up to **$100 in additional credits** through activities. **Free plan**: 6 months or until credits exhausted . | **AWS Free Plan**: **6 months free** or until credits exhausted. **Always Free services**: 1M Lambda requests/month, 5GB S3, 750 hours EC2 t2.micro/t3.micro (12 months for new accounts) . | **~$638B revenue (Amazon FY2025)** |
-
-| **[Google Cloud CLI (gcloud)](https://cloud.google.com/sdk/gcloud)** | CLI for Google Cloud. Includes `gcloud`, `gsutil`, and `bq` tools. Free for all Google Cloud users . | **Free** — Cloud SDK is free. **Google Cloud free trial**: **$300 credit for 90 days** . | **Google Cloud Free Tier**: **$300 credit (90 days)** + **20+ always-free products** including 1 e2-micro VM, 5GB Cloud Storage, 1TiB BigQuery queries/month, 2M Cloud Run requests/month . | **~$350B revenue (Alphabet FY2025)** |
-
-| **[OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cliconcepts.htm)** | Oracle Cloud Infrastructure CLI. Available in Cloud Shell (pre-installed) and as standalone package. | **Free** — OCI CLI itself costs nothing. **Oracle Cloud Free Tier**: **Always Free** resources available indefinitely . | **Oracle Always Free**: 2 Autonomous Databases, 4 Arm Ampere A1 cores + 24GB RAM, 200GB block storage, 20GB object storage, 10TB outbound/month, 1 flexible load balancer . | **~$53B revenue (Oracle FY2025)** |
-
-| **[DigitalOcean CLI (doctl)](https://github.com/digitalocean/doctl)** | Official CLI for DigitalOcean. Go-based, available on macOS, Linux, Windows. | **Free** — doctl itself costs nothing. DigitalOcean services start at **$4/month** (basic droplet). | **$200 credit for 60 days** for new accounts. **No perpetual free tier** for compute . | **Public (DOCN), ~$700M+ revenue** |
-
-| **[Linode CLI](https://www.linode.com/docs/guides/linode-cli/)** | CLI wrapper around Linode API for managing Akamai Cloud Computing resources . | **Free** — CLI is free to all customers . Linode services start at **$5/month** (Nanode). | **$100 credit for 60 days** for new accounts. **No perpetual free tier**. | **Part of Akamai (~$4B+ revenue)** |
-
-| **[IBM Cloud CLI](https://cloud.ibm.com/docs/cli)** | CLI for IBM Cloud. Free tool for administering IBM Cloud from terminal . | **Free** — CLI is free . **IBM Cloud Lite**: Free tier with select services. | **Lite account**: **Never expires** (if created before Oct 25, 2021). **New accounts**: Pay-As-You-Go with **$200 credit for 30 days** . | **~$63B revenue (IBM FY2025)** |
-
-| **[Vultr CLI](https://docs.vultr.com/)** | CLI for managing Vultr cloud infrastructure — instances, networking, storage, and more . | **Free** — CLI is free. Vultr services start at **$2.50/month** (IPv6-only) or **$5/month** (IPv4). | **$100–$300 credit** for new accounts (varies by promotion). **No perpetual free tier** for compute. | **Private (~$500M+ revenue est.)** |
-
-| **[Scaleway CLI](https://github.com/scaleway/scaleway-cli)** | CLI for administering Scaleway accounts and resources. Free tool . | **Free** — CLI is free . Scaleway services start at **€0.0045/hour** (~€3.24/month) for basic instances. | **€100 credit for 30 days** for new accounts. **No perpetual free tier**. | **Private (part of Iliad Group)** |
-
-| **[Alibaba Cloud CLI](https://www.alibabacloud.com/help/en/cli)** | CLI for Alibaba Cloud. Also available via Cloud Shell (web-based) . | **Free** — CLI is free. Alibaba Cloud services start at **$4.50/month** for basic ECS. | **Free trial resources** for new users: compute, storage, database, and AI products. **Eligibility**: verified real-name account, product-level new user, no outstanding balance . | **~$130B revenue (Alibaba FY2025 est.)** |
-
-
-
-## 🔓 Open-Source GitHub Projects
-
-
-
-Sorted by star count (descending). Star badge links to each repo's stargazers page.
-
-
-
-| Repo | Description | Stars |
-
-|---|---|---|
-
-| **[AWS CLI](https://github.com/aws/aws-cli)** — Universal Command Line Interface for Amazon Web Services. v2 is the current generation. Python-based. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/aws/aws-cli?style=social&color=white)](https://github.com/aws/aws-cli/stargazers) | ~16,000 |
-
-| **[Azure CLI](https://github.com/Azure/azure-cli)** — Command-line tools for Azure. Cross-platform, available on Windows, macOS, Linux, Docker, and Cloud Shell. Python-based. MIT. | [![Stars](https://img.shields.io/github/stars/Azure/azure-cli?style=social&color=white)](https://github.com/Azure/azure-cli/stargazers) | ~4,200 |
-
-| **[Google Cloud SDK](https://github.com/google-cloud-sdk/google-cloud-sdk)** — Tools for Google Cloud including gcloud, gsutil, and bq. Available on Linux, macOS, Windows. | [![Stars](https://img.shields.io/github/stars/google-cloud-sdk/google-cloud-sdk?style=social&color=white)](https://github.com/google-cloud-sdk/google-cloud-sdk/stargazers) | ~3,500 |
-
-| **[doctl (DigitalOcean CLI)](https://github.com/digitalocean/doctl)** — Official DigitalOcean CLI. Go-based, available on macOS, Linux, Windows. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/digitalocean/doctl?style=social&color=white)](https://github.com/digitalocean/doctl/stargazers) | ~3,400 |
-
-| **[Scaleway CLI](https://github.com/scaleway/scaleway-cli)** — CLI for Scaleway Cloud. Go-based. Apache-2.0 . | [![Stars](https://img.shields.io/github/stars/scaleway/scaleway-cli?style=social&color=white)](https://github.com/scaleway/scaleway-cli/stargazers) | ~1,100 |
-
-| **[OCI CLI](https://github.com/oracle/oci-cli)** — Oracle Cloud Infrastructure CLI. Python-based. UPL-1.0. | [![Stars](https://img.shields.io/github/stars/oracle/oci-cli?style=social&color=white)](https://github.com/oracle/oci-cli/stargazers) | ~1,000 |
-
-| **[IBM Cloud CLI](https://github.com/IBM-Cloud/ibm-cloud-cli-release)** — IBM Cloud Command Line Interface. Go-based. Apache-2.0 . | [![Stars](https://img.shields.io/github/stars/IBM-Cloud/ibm-cloud-cli-release?style=social&color=white)](https://github.com/IBM-Cloud/ibm-cloud-cli-release/stargazers) | ~200 |
-
-| **[Vultr CLI](https://github.com/vultr/vultr-cli)** — Official Vultr CLI. Go-based. Apache-2.0 . | [![Stars](https://img.shields.io/github/stars/vultr/vultr-cli?style=social&color=white)](https://github.com/vultr/vultr-cli/stargazers) | ~150 |
-
-| **[Alibaba Cloud CLI](https://github.com/aliyun/aliyun-cli)** — Alibaba Cloud CLI. Go-based. Apache-2.0 . | [![Stars](https://img.shields.io/github/stars/aliyun/aliyun-cli?style=social&color=white)](https://github.com/aliyun/aliyun-cli/stargazers) | ~1,000 |
-
-| **[Linode CLI](https://github.com/linode/linode-cli)** — Official Linode CLI. Python-based. Apache-2.0 . | [![Stars](https://img.shields.io/github/stars/linode/linode-cli?style=social&color=white)](https://github.com/linode/linode-cli/stargazers) | ~600 |
-
-
-
-**Additional open-source options worth exploring:**
-
-
-
-| Repo | Description |
-
-|---|---|
-
-| **[Azure Developer CLI (azd)](https://github.com/Azure/azure-dev)** — Developer-centric CLI for Azure that accelerates provisioning and deployment. MIT. | [![Stars](https://img.shields.io/github/stars/Azure/azure-dev?style=social&color=white)](https://github.com/Azure/azure-dev/stargazers) |
-
-| **[AWS Copilot CLI](https://github.com/aws/copilot-cli)** — CLI for containerized applications on AWS ECS/Fargate. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/aws/copilot-cli?style=social&color=white)](https://github.com/aws/copilot-cli/stargazers) |
-
-| **[Pulumi](https://github.com/pulumi/pulumi)** — Infrastructure as Code in any language. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/pulumi/pulumi?style=social&color=white)](https://github.com/pulumi/pulumi/stargazers) |
-
-
-
-## 🤝 How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## ⚠️ Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- Cloud CLIs handle sensitive credentials and API keys; ensure proper secret management, least-privilege access, and compliance with organizational security policies.
-
-- **Open-source reality**: Cloud CLIs are **overwhelmingly open-source** — AWS CLI, Azure CLI, Google Cloud SDK, doctl, OCI CLI, IBM Cloud CLI, Vultr CLI, Scaleway CLI, Alibaba Cloud CLI, and Linode CLI are all **free, open-source tools** published by their respective cloud providers. The "SaaS" and "Open-Source" distinction in this list is therefore **semantic** — the SaaS entry refers to the commercial cloud platform the CLI manages, while the Open-Source entry refers to the CLI tool itself. **Every major cloud CLI is free to download, use, and modify** — you pay only for the cloud resources you consume. The open-source path is **universally viable** for cloud CLI tooling.
-
-- **Pricing caveat**: All free tier figures above are **verified against cited search results** but may change without notice. Cloud provider free tiers often have eligibility restrictions (new accounts only), time limits, and service-specific quotas. Always check the provider's official free tier page for current terms.
-
-
+# ⚡ Awesome Cloud Command-Line Interface (Cloud CLI) ☁️
+
+![Awesome Cloud CLI Banner](./assets/banner.svg)
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Cloud-Command-Line-Interface"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Cloud-Command-Line-Interface?style=social" alt="GitHub Stars"/></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Cloud-Command-Line-Interface/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ishandutta2007/Awesome-Cloud-Command-Line-Interface" alt="License"/></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> 🚀 **Curated List of Cloud CLI Tools, Multi-Cloud Terminal Utilities, SaaS Cloud Management Platforms & Open-Source Infrastructure Projects**
+>
+> *Focused on Cloud Infrastructure Automation, Multi-Cloud Operations, Container Management & Terminal Workflows.*
+>
+> 📅 **Last updated: October 2026**
 
 ---
 
+## 💡 Overview & SEO Keywords
 
+Welcome to the ultimate directory of **Cloud Command-Line Interfaces (CLIs)**! Whether you are a DevOps engineer, Site Reliability Engineer (SRE), cloud architect, or software developer, this repository provides a comprehensive breakdown of production-grade terminal tools for managing infrastructure across Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), DigitalOcean, Akamai/Linode, Vultr, IBM Cloud, Scaleway, and Alibaba Cloud.
 
-**Made for DevOps engineers, cloud architects, platform teams, and infrastructure developers.**
+### 🔍 Key Topics & Categories
+- ☁️ **Major Cloud Provider CLIs**: Universal tools like `aws-cli`, `azure-cli`, `gcloud`, `oci-cli`, `doctl`, and `aliyun-cli`.
+- 🛠️ **Infrastructure as Code (IaC) & Developer CLIs**: Command-line developer tools like `pulumi`, `azd` (Azure Developer CLI), and `copilot-cli`.
+- 📦 **Container & Kubernetes Terminal Tools**: Tools for managing cluster deployments and containerized workflows directly from your shell.
+- ⚙️ **Multi-Cloud Operations**: Automation utilities for managing resources across public, private, and hybrid cloud environments.
 
-Let's make cloud command-line interfaces more open, transparent, and accessible.
+---
+
+## 📖 Table of Contents
+
+- [☁️ SaaS / Hosted Cloud Platforms](#️-saas--hosted-cloud-platforms)
+- [🔓 Open-Source GitHub Projects](#-open-source-github-projects)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [💖 Support & Sponsorship](#-support--sponsorship)
+- [⚠️ Disclaimer](#️-disclaimer)
+- [📊 Star History](#-star-history)
+
+---
+
+## ☁️ SaaS / Hosted Cloud Platforms
+
+> **📊 Market Context & Size**: The global cloud infrastructure services market is estimated at **~$1.2 Trillion in 2026**, growing at **~18% CAGR**. The cloud CLI sector is **highly concentrated** around major cloud hyperscalers (AWS, Microsoft Azure, Google Cloud, and Oracle) who distribute CLI tools as free value-adds to drive platform adoption. No CLI tool holds a standalone "winner-take-all" commercial position; instead, enterprises typically standardize on their primary cloud provider's official CLI alongside Infrastructure-as-Code (IaC) tools like Pulumi or OpenTofu.
+
+The table below lists major cloud management platforms sorted by **Company Size (Revenue / Valuation) in descending order**:
+
+| Platform | Description | Pricing (Starting Tier) | Free Tier Limits | Company Size (Revenue / Valuation) |
+| :--- | :--- | :--- | :--- | :--- |
+| **[AWS CLI](https://aws.amazon.com/cli/)** ☁️ | Unified CLI for AWS services. v2 is the current generation with installer-based distribution. Open-source on GitHub. | **Free CLI** (Pay for resources). Compute starts at **$0.0034/hr** (t4g.nano). | **AWS Free Plan**: **$100 sign-up credits** + 6 months free access. **Always Free**: 1M Lambda requests/mo, 5GB S3, 750 hrs EC2 t2/t3.micro (12 mos). | **~$638B revenue (Amazon FY2025)** |
+| **[Google Cloud CLI (gcloud)](https://cloud.google.com/sdk/gcloud)** 🌐 | CLI for Google Cloud. Includes `gcloud`, `gsutil`, and `bq` tools. Free for all Google Cloud users. | **Free CLI** (Pay for resources). Compute starts at **$0.0076/hr** (e2-micro). | **Google Cloud Free Tier**: **$300 credit (90 days)** + 20+ always-free products (1 e2-micro VM, 5GB Cloud Storage, 1TiB BigQuery/mo). | **~$350B revenue (Alphabet FY2025)** |
+| **[Microsoft Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)** 🔷 | Cross-platform CLI for managing Azure resources. Available on Windows, macOS, Linux, Docker, and Azure Cloud Shell. | **Free CLI** (Pay for resources). Compute starts at **$0.0052/hr** (B1ls). | **Azure Free Account**: **$200 credit for 30 days** + 12 months of popular free services + 55+ always-free services. Azure Cloud Shell includes 5GB free. | **~$281B revenue (Microsoft FY2025)** |
+| **[Alibaba Cloud CLI](https://www.alibabacloud.com/help/en/cli)** 🇨🇳 | Official CLI for Alibaba Cloud infrastructure services and Cloud Shell. | **Free CLI** (Pay for resources). Basic ECS starts at **$4.50/month**. | **Free Trial**: Up to **$300-$1700 credit / 30-90 days** in trial resources for compute, storage, and AI for verified new users. | **~$130B revenue (Alibaba FY2025 est.)** |
+| **[IBM Cloud CLI](https://cloud.ibm.com/docs/cli)** 🏢 | Command-line tool suite for administering IBM Cloud services and infrastructure. | **Free CLI** (Pay for resources). Pay-As-You-Go with standard usage rates. | **IBM Cloud Lite Account**: **$200 credit for 30 days** for new accounts + always-free Lite plan services (no credit card required). | **~$63B revenue (IBM FY2025)** |
+| **[OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cliconcepts.htm)** 🧅 | Oracle Cloud Infrastructure CLI. Available in Cloud Shell (pre-installed) and as standalone package. | **Free CLI** (Pay for resources). Compute starts at **$0.0075/hr**. | **Oracle Always Free**: 2 Autonomous Databases, 4 Arm Ampere A1 cores + 24GB RAM, 200GB block storage, 10TB outbound data/mo indefinitely. | **~$53B revenue (Oracle FY2025)** |
+| **[Linode CLI](https://www.linode.com/docs/guides/linode-cli/)** ⚡ | CLI wrapper around Linode API for managing Akamai Cloud Computing resources. | **Free CLI** (Pay for resources). Linode instances start at **$5.00/month** (Nanode 1GB). | **$100 credit for 60 days** for new accounts. No perpetual free compute tier. | **Part of Akamai (~$4B+ revenue)** |
+| **[DigitalOcean CLI (doctl)](https://github.com/digitalocean/doctl)** 🌊 | Official CLI for DigitalOcean. Go-based, cross-platform CLI tool. | **Free CLI** (Pay for resources). Droplets start at **$4.00/month** (Basic Droplet). | **$200 credit for 60 days** for new accounts. No perpetual free compute tier. | **Public (DOCN), ~$700M+ revenue** |
+| **[Vultr CLI](https://docs.vultr.com/)** 🔌 | Official CLI for managing Vultr instances, storage, and networking. | **Free CLI** (Pay for resources). Instances start at **$2.50/month** (IPv6-only) or **$5.00/month** (IPv4). | **$100–$300 credit for 14–30 days** for new promotional accounts. No perpetual free compute tier. | **Private (~$500M+ revenue est.)** |
+| **[Scaleway CLI](https://github.com/scaleway/scaleway-cli)** 🇪🇺 | CLI for administering Scaleway Cloud accounts and European cloud infrastructure. | **Free CLI** (Pay for resources). Instances start at **€0.0045/hour** (~€3.24/month). | **€100 credit for 30 days** for new accounts. No perpetual free compute tier. | **Private (part of Iliad Group, ~$10B+ group rev)** |
+
+---
+
+## 🔓 Open-Source GitHub Projects
+
+Below is a curated collection of open-source cloud CLI tools, developer frameworks, and multi-cloud command-line interfaces, sorted by **GitHub Star Count (descending)**:
+
+| Repo | Description | Stars |
+| :--- | :--- | :--- |
+| **[Pulumi](https://github.com/pulumi/pulumi)** 🚀 | Infrastructure as Code in TypeScript, Python, Go, C#, Java, and YAML. Multi-cloud deployment CLI. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/pulumi/pulumi?style=social&color=white)](https://github.com/pulumi/pulumi/stargazers) |
+| **[AWS CLI](https://github.com/aws/aws-cli)** 📦 | Universal Command Line Interface for Amazon Web Services. v2 is the current Python-based generation. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/aws/aws-cli?style=social&color=white)](https://github.com/aws/aws-cli/stargazers) |
+| **[Azure CLI](https://github.com/Azure/azure-cli)** 🔷 | Official command-line tools for Microsoft Azure. Cross-platform, Python-based. MIT License. | [![Stars](https://img.shields.io/github/stars/Azure/azure-cli?style=social&color=white)](https://github.com/Azure/azure-cli/stargazers) |
+| **[Google Cloud SDK](https://github.com/google-cloud-sdk/google-cloud-sdk)** 🌐 | Official command-line SDK for Google Cloud including `gcloud`, `gsutil`, and `bq`. | [![Stars](https://img.shields.io/github/stars/google-cloud-sdk/google-cloud-sdk?style=social&color=white)](https://github.com/google-cloud-sdk/google-cloud-sdk/stargazers) |
+| **[doctl (DigitalOcean CLI)](https://github.com/digitalocean/doctl)** 🌊 | Official DigitalOcean CLI. Go-based binary available on macOS, Linux, and Windows. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/digitalocean/doctl?style=social&color=white)](https://github.com/digitalocean/doctl/stargazers) |
+| **[AWS Copilot CLI](https://github.com/aws/copilot-cli)** ⛵ | Developer CLI for building, releasing, and operating containerized apps on AWS App Runner & ECS/Fargate. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/aws/copilot-cli?style=social&color=white)](https://github.com/aws/copilot-cli/stargazers) |
+| **[Azure Developer CLI (azd)](https://github.com/Azure/azure-dev)** 🛠️ | Developer-centric CLI for Azure that accelerates app provisioning, coding, and deployment. MIT. | [![Stars](https://img.shields.io/github/stars/Azure/azure-dev?style=social&color=white)](https://github.com/Azure/azure-dev/stargazers) |
+| **[Scaleway CLI](https://github.com/scaleway/scaleway-cli)** 🇪🇺 | Command-line interface for Scaleway Cloud infrastructure. Go-based. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/scaleway/scaleway-cli?style=social&color=white)](https://github.com/scaleway/scaleway-cli/stargazers) |
+| **[Alibaba Cloud CLI](https://github.com/aliyun/aliyun-cli)** 🇨🇳 | Official Alibaba Cloud CLI (`aliyun`). Go-based tool for managing cloud resources. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/aliyun/aliyun-cli?style=social&color=white)](https://github.com/aliyun/aliyun-cli/stargazers) |
+| **[OCI CLI](https://github.com/oracle/oci-cli)** 🧅 | Official Oracle Cloud Infrastructure CLI. Python-based tool. Universal Permissive License (UPL) 1.0. | [![Stars](https://img.shields.io/github/stars/oracle/oci-cli?style=social&color=white)](https://github.com/oracle/oci-cli/stargazers) |
+| **[Linode CLI](https://github.com/linode/linode-cli)** ⚡ | Official CLI for Linode / Akamai Cloud Computing services. Python-based. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/linode/linode-cli?style=social&color=white)](https://github.com/linode/linode-cli/stargazers) |
+| **[IBM Cloud CLI](https://github.com/IBM-Cloud/ibm-cloud-cli-release)** 🏢 | Command-line environment release for IBM Cloud (`ibmcloud`). Go-based. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/IBM-Cloud/ibm-cloud-cli-release?style=social&color=white)](https://github.com/IBM-Cloud/ibm-cloud-cli-release/stargazers) |
+| **[Vultr CLI](https://github.com/vultr/vultr-cli)** 🔌 | Official Vultr CLI (`vultr-cli`) written in Go for managing compute, storage, and DNS. Apache-2.0. | [![Stars](https://img.shields.io/github/stars/vultr/vultr-cli?style=social&color=white)](https://github.com/vultr/vultr-cli/stargazers) |
+
+---
+
+## 🤝 How to Contribute
+
+Contributions are warmly welcomed! Help us keep this list up to date and expand coverage of cloud CLI tools.
+
+1. 🍴 **Fork** this repository.
+2. 📝 Add or update entries in `README.md` following the tabular format.
+3. 📌 Ensure descriptions are concise, factual, and include proper pricing / free-tier details.
+4. 🔀 Submit a **Pull Request** with a brief summary of changes.
+
+---
+
+## 💖 Support & Sponsorship
+
+If you found this list helpful, please consider supporting the project:
+
+- ⭐️ **Star** this repository on GitHub to increase visibility!
+- 🔀 **Fork** and share with your DevOps team or developer community.
+- ☕ **Buy me a coffee / Sponsor**: Support ongoing maintenance on GitHub Sponsors:
+
+<p align="left">
+  <a href="https://github.com/sponsors/ishandutta2007">
+    <img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub" />
+  </a>
+</p>
+
+Thank you for supporting open-source software! ❤️
+
+---
+
+## ⚠️ Disclaimer
+
+- This is a **community-curated** list — not exhaustive and not an official endorsement of any listed cloud vendor.
+- Cloud CLIs handle sensitive API tokens and credentials; always enforce proper secret management, least-privilege IAM policies, and organization security guidelines.
+- **Open-source nature of Cloud CLIs**: Nearly all cloud provider CLIs (`aws-cli`, `azure-cli`, `gcloud`, `doctl`, `oci-cli`, `vultr-cli`, `scaleway-cli`, etc.) are released under open-source licenses (Apache-2.0, MIT, UPL). The SaaS table describes the hosted cloud services managed by the CLI, while the Open-Source table highlights the command-line tools themselves.
+- **Pricing & Free Tier Terms**: Free tier quotas and promotional credits are accurate as of October 2026 but are subject to change by cloud providers. Always consult official vendor pricing pages before launching production workloads.
+
+---
+
+## 📊 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Cloud-Command-Line-Interface&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Cloud-Command-Line-Interface&type=date&legend=top-left)
+
+---
+
+<p align="center">
+  <b>Made with ❤️ for DevOps Engineers, Cloud Architects, Platform Teams &amp; Infrastructure Developers.</b>
+</p>
